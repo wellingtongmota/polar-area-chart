@@ -1,13 +1,15 @@
-import { Flex, Heading } from "@chakra-ui/react"
+import { Flex, Heading, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text } from "@chakra-ui/react"
 
 const App = () => {
 
   const qualidades = [
-    'Propriedade 1',
-    'Propriedade 2',
-    'Propriedade 3',
-    'Propriedade 4',
-    'Propriedade 5',
+    'Escuta',
+    'Estratégia',
+    'Gatilhos mentais',
+    'Conexão',
+    'Comunicação',
+    'Clareza do negócio',
+    'Marketing',
   ]
 
   return (
@@ -23,15 +25,47 @@ const App = () => {
 
       <Heading>Título</Heading>
 
-      <Flex 
+      <Flex
         bgColor='blue.50'
         maxW='4xl'
         w='full'
         maxH='xl'
         h='full'
+        gap={1}
         p={4}
+        flexDirection={['column', 'row']}
       >
-        Polar Area Chart
+        <Flex
+          // flex={1}
+          flexDirection={['row', 'column']}
+          flexWrap='wrap'
+          gap={[4, 3]}
+          px={2}
+          justify='center'
+        // border='2px solid red'
+        >
+          {
+            qualidades.map((item, index) => (
+              <Flex key={index} gap={1} align='center'>
+                <Text w='44'>{item}</Text>
+                <NumberInput maxW='14' size='xs' max={10} min={0} bgColor='white'>
+                  <NumberInputField />
+                  <NumberInputStepper>
+                    <NumberIncrementStepper />
+                    <NumberDecrementStepper />
+                  </NumberInputStepper>
+                </NumberInput>
+              </Flex>
+            ))
+          }
+        </Flex>
+        <Flex
+          flex={1}
+          p={2}
+          // border='2px solid green'
+        >
+          Gráfico
+        </Flex>
       </Flex>
     </Flex>
   )
