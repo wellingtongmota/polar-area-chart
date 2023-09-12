@@ -1,4 +1,15 @@
-import { Flex, Heading, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Text } from "@chakra-ui/react"
+import {
+  Button,
+  Flex,
+  Heading,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  Text
+} from "@chakra-ui/react"
+import { LuSave } from "react-icons/lu";
 
 const App = () => {
 
@@ -70,8 +81,13 @@ const App = () => {
         <Flex
           border='2px solid black'
           w='full'
+          justify='center'
+          align='end'
+          p={2}
         >
-          Ações
+          <Button rightIcon={<LuSave />} colorScheme='blue'>
+            Salvar
+          </Button>
         </Flex>
       </Flex>
     </Flex>
