@@ -82,6 +82,7 @@ const App = () => {
         <Flex
           border='2px solid black'
           w='full'
+          maxH='16'
           justify='center'
           align='end'
           p={2}
