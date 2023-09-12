@@ -10,6 +10,7 @@ import {
   Text
 } from "@chakra-ui/react"
 import { LuSave } from "react-icons/lu";
+import SendModal from "./components/SendModal";
 
 const App = () => {
 
@@ -85,9 +86,11 @@ const App = () => {
           align='end'
           p={2}
         >
-          <Button rightIcon={<LuSave />} colorScheme='blue'>
-            Salvar
-          </Button>
+          <SendModal onSendItem={() => console.log('send')}>
+            <Button rightIcon={<LuSave />} colorScheme='blue'>
+              Salvar
+            </Button>
+          </SendModal>
         </Flex>
       </Flex>
     </Flex>
