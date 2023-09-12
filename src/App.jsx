@@ -34,6 +34,7 @@ const App = () => {
         gap={1}
         p={4}
         flexDirection={['column', 'row']}
+        flexWrap='wrap'
       >
         <Flex
           // flex={1}
@@ -42,7 +43,7 @@ const App = () => {
           gap={[4, 3]}
           px={2}
           justify='center'
-        // border='2px solid red'
+          border='2px solid red'
         >
           {
             qualidades.map((item, index) => (
@@ -62,9 +63,15 @@ const App = () => {
         <Flex
           flex={1}
           p={2}
-          // border='2px solid green'
+          border='2px solid green'
         >
           Gráfico
+        </Flex>
+        <Flex
+          border='2px solid black'
+          w='full'
+        >
+          Ações
         </Flex>
       </Flex>
     </Flex>
