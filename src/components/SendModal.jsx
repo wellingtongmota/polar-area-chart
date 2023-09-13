@@ -34,10 +34,11 @@ const SendModal = ({ children, onSendItem }) => {
           phone: ''
         }}
 
-        onSubmit={(values, { setSubmitting}) => {
+        onSubmit={(values, { setSubmitting, resetForm}) => {
           setTimeout(() => {
             console.log('Dados: ', values)
             setSubmitting(false);
+            resetForm()
         }, 500);
         }}
       >
