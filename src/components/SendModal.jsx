@@ -8,10 +8,10 @@ import {
   InputLeftElement,
   Modal,
   ModalBody,
-  ModalContent, 
-  ModalFooter, 
-  ModalHeader, 
-  ModalOverlay, 
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   useDisclosure
 } from '@chakra-ui/react'
 import { Field, Form, Formik } from 'formik'
@@ -33,12 +33,19 @@ const SendModal = ({ children, onSendItem }) => {
           name: '',
           phone: ''
         }}
+
+        onSubmit={(values, { setSubmitting}) => {
+          setTimeout(() => {
+            console.log('Dados: ', values)
+            setSubmitting(false);
+        }, 500);
+        }}
       >
         {({ isSubmitting }) => (
-          <Box as={Form}>
+          <>
             <Modal isOpen={isOpen} onClose={onClose} isCentered>
               <ModalOverlay />
-              <ModalContent m={2}>
+              <ModalContent m={2} as={Form}>
                 <ModalHeader>Enviar</ModalHeader>
                 <ModalBody>
                   <FormControl isRequired>
@@ -64,13 +71,13 @@ const SendModal = ({ children, onSendItem }) => {
                   <Button mr={3} onClick={onClose}>
                     Cancelar
                   </Button>
-                  <Button colorScheme='blue' onClick={sendItem}>
+                  <Button type='submit' isLoading={isSubmitting} loadingText='Enviando' colorScheme='blue'>
                     Enviar
                   </Button>
                 </ModalFooter>
               </ModalContent>
             </Modal>
-          </Box>
+          </>
         )}
       </Formik>
     </>
